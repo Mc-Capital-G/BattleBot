@@ -44,19 +44,14 @@ class ESC_Manager:
             else: gpiomask |= (1 << pins[i])
             for j in range(i+1, len(on_times)):
                 if on_times[j] == on_times[i]: 
-                    gpiomask |= (1 << on_times[j])
+                    gpiomask |= (1 << pins[j])
                 else:
                     wave.append(pigpio.pulse(gpiomask, 0, on_times[j] - on_times[i]))
                     break
-        print(gpiomask)
+        
         wave.append(pigpio.pulse(0, 0, ESC.FRAME_TIME - 2*on_times[-1]))
-        print(wave)
         self.pg.wave_add_generic(wave)
         self.wid = self.pg.wave_create()
-        info = self.pg.wave_get_cbs()
-        print(info)
-        print(self.pg.wave_get_pulses())     # shows timing and bitmasks of each pulse
-        print(self.pg.wave_get_max_pulses())
 
                 
     def UpdateESCS(self, throttles: list[float]):

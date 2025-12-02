@@ -6,6 +6,7 @@ import time
 MAX_THROTTLE_PERCENT = .1
 
 pg = pigpio.pi()
+pg.wave_clear()
 
 joy = Controller("/dev/input/js0")
 FR = ESC(19, pg)

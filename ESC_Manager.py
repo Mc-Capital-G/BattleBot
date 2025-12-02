@@ -8,8 +8,8 @@ class ESC_Manager:
         self.escs = escs
 
         for i in escs:
-            pg.set_mode(i.pin, pigpio.OUTPUT)
-            pg.write(i.pin, 0)
+            self.pg.set_mode(i.pin, pigpio.OUTPUT)
+            self.pg.write(i.pin, 0)
 
     def build_wave(self):
         self.pg.wave_clear()

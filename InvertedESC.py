@@ -11,6 +11,7 @@ class ESC:
     MAX_WIDTH = 2000 # maximum width of servo pulse (in mircoseconds)
     MIN_WIDTH = 1000 # minimum width of servo pulse (in microseconds)
     WAVE_TABLE_RES = 10 # amount of "steps" we have for waveform generation (in microseconds)
+    MIN_THROTTLE = 0.09
 
     def __init__(self, GPIO_PIN: int):
         self.pin = GPIO_PIN

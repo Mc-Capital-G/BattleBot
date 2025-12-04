@@ -5,8 +5,8 @@ import time
 MAX_THROTTLE_PERCENT = .1
 
 joy = Controller("/dev/input/js0")
-FR = ESC(19)
-FL = ESC(26)
+FR = ESC(27)
+FL = ESC(22)
 BR = ESC(5)
 BL = ESC(6)
 
